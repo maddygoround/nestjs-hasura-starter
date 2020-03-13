@@ -1,0 +1,92 @@
+{
+  "name": "nestjs-hasura-starter",
+  "version": "0.0.1",
+  "description": "NestJS HasuraGraphqL API Starter",
+  "author": "MaddyGoRound",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "copyfiles --flat src/*.env dist && nest build --webpack",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "copyfiles --flat src/*.env dist && node dist/main",
+    "prestart:prod": "rimraf dist && npm run build",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "dependencies": {
+    "@nestjs/common": "6.9.0",
+    "@nestjs/core": "6.9.0",
+    "@nestjs/graphql": "6.5.3",
+    "@nestjs/jwt": "^6.1.2",
+    "@nestjs/platform-fastify": "6.9.0",
+    "@nestjs/passport": "^6.2.0",
+    "@nestjs/typeorm": "6.2.0",
+    "apollo-link-http": "^1.5.16",
+    "apollo-server-core": "^2.9.11",
+    "apollo-server-fastify": "^2.9.11",
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.11.0",
+    "core-decorators": "^0.20.0",
+    "graphql": "14.5.8",
+    "graphql-passport": "^0.5.0",
+    "ioredis": "^4.14.1",
+    "passport": "^0.4.0",
+    "passport-http-bearer": "^1.0.1",
+    "passport-jwt": "^4.0.0",
+    "pg": "^7.15.1",
+    "dotenv": "^8.2.0",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.0",
+    "rxjs": "^6.5.3",
+    "type-graphql": "^0.17.6",
+    "typeorm": "^0.2.20"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^6.9.0",
+    "@nestjs/schematics": "^6.7.0",
+    "@nestjs/testing": "^6.7.1",
+    "@types/express": "^4.17.1",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.5",
+    "@types/node-fetch": "^2.5.5",
+    "@types/passport": "^1.0.2",
+    "@types/supertest": "^2.0.8",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "supertest": "^4.0.2",
+    "ts-jest": "^24.1.0",
+    "ts-loader": "^6.1.1",
+    "ts-node": "^8.4.1",
+    "tsconfig-paths": "^3.9.0",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "keywords": [
+      "Graphql",
+      "Hasura",
+      "NestJS",
+      "NodeJS",
+      "API"
+    ],
+    "coverageDirectory": "./coverage",
+    "testEnvironment": "node"
+  }
+}
