@@ -90,48 +90,7 @@ export class GraphqlService implements GqlOptionsFactory {
 
       const remoteIntrospectedSchema = await introspectSchema(httpLink);
       const remoteSchema = printSchema(remoteIntrospectedSchema);
-
-    //   const link = setContext(async (request, previousContext) => {
-
-    //     const { user } = await previousContext.graphqlContext.authenticate("bearer");
-
-    //     if (!user) {
-    //       throw new UnauthorizedException();
-    //     }
-
-    //     if (user.user_type === UserType.SUPERADMIN) {
-    //       previousContext.headers = {
-    //         "X-Hasura-Role": "admin"
-    //       }
-    //     } else {
-
-
-    //       const opPermission = this.permsOp.getPermForOp(request.operationName);
-
-    //       let isPermitted = false;
-
-    //       if (opPermission === "allowed-operation") {
-    //         isPermitted = true
-    //       } else {
-    //         const permissions = user.permissions.map((p) => p.name);
-    //         isPermitted = permissions.indexOf(opPermission) >= 0;
-    //       }
-
-    //       if (isPermitted) {
-    //         previousContext.headers = {
-    //           "X-Hasura-Access-Key": this.config.graphQLEngineAccessKey,
-    //           "X-Hasura-Role": opPermission !== "allowed-operation" ? opPermission : "",
-    //           "X-Hasura-Organization-Id": user.organization_id,
-    //           "X-Hasura-User-Id": user.id
-    //         }
-    //       } else {
-    //         throw new ForbiddenException();
-    //       }
-    //     }
-
-    //     return previousContext;
-    //   }).concat(httpLink);
-
+      
       const buildedHasuraSchema = buildSchemaGraphql(remoteSchema);
       const remoteExecutableSchema = makeRemoteExecutableSchema({
         link: httpLink,
