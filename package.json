@@ -30,7 +30,7 @@
     "@nestjs/typeorm": "6.2.0",
     "apollo-link-http": "^1.5.16",
     "apollo-server-core": "^2.9.11",
-    "apollo-server-fastify": "^2.9.11",
+    "apollo-server-fastify": "^2.14.2",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.11.0",
     "core-decorators": "^0.20.0",
